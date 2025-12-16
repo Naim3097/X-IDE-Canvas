@@ -51,9 +51,9 @@ export const SidePanel: React.FC<SidePanelProps> = ({
   }, [selectedShape?.id]);
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full font-sans">
       {/* --- Narrow Rail --- */}
-      <div className="w-16 bg-white border-r border-gray-200 flex flex-col items-center py-4 gap-4 z-20">
+      <div className="w-16 bg-white border-r border-slate-200 flex flex-col items-center py-4 gap-4 z-20">
         <TabButton 
             active={activeTab === 'elements'} 
             onClick={() => setActiveTab('elements')} 
@@ -89,25 +89,25 @@ export const SidePanel: React.FC<SidePanelProps> = ({
       </div>
 
       {/* --- Drawer Content --- */}
-      <div className="w-72 bg-gray-50 border-r border-gray-200 flex flex-col overflow-y-auto transition-all duration-300">
+      <div className="w-72 bg-slate-50 border-r border-slate-200 flex flex-col overflow-y-auto transition-all duration-300">
         
         {/* Layers Tab */}
         {activeTab === 'layers' && (
             <div className="p-4">
-                <h3 className="font-bold text-gray-800 mb-4">Layers</h3>
+                <h3 className="font-bold text-slate-900 mb-4">Layers</h3>
                 <div className="space-y-2">
                     {[...shapes].reverse().map((shape, index) => (
                         <div 
                             key={shape.id}
                             className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-colors ${
                                 selectedShape?.id === shape.id 
-                                    ? 'bg-blue-50 border-blue-200' 
-                                    : 'bg-white border-gray-200 hover:bg-gray-50'
+                                    ? 'bg-white border-slate-900 shadow-sm' 
+                                    : 'bg-white border-slate-200 hover:bg-slate-50'
                             }`}
                             onClick={() => onSelectShape && onSelectShape(shape.id)}
                         >
                             <div className="flex items-center gap-3 overflow-hidden">
-                                <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center flex-none text-gray-500">
+                                <div className="w-8 h-8 bg-slate-100 rounded flex items-center justify-center flex-none text-slate-500">
                                     {shape.type === 'text' && <Type size={16} />}
                                     {shape.type === 'image' && <ImageIcon size={16} />}
                                     {shape.type === 'rect' && <Square size={16} />}
@@ -117,10 +117,10 @@ export const SidePanel: React.FC<SidePanelProps> = ({
                                     {shape.type === 'heart' && <Heart size={16} />}
                                 </div>
                                 <div className="truncate">
-                                    <div className="text-sm font-medium text-gray-700 truncate">
+                                    <div className="text-sm font-medium text-slate-700 truncate">
                                         {shape.type === 'text' ? (shape.text || 'Text') : shape.type}
                                     </div>
-                                    <div className="text-xs text-gray-400">
+                                    <div className="text-xs text-slate-400">
                                         Layer {shapes.length - index}
                                     </div>
                                 </div>
@@ -130,14 +130,14 @@ export const SidePanel: React.FC<SidePanelProps> = ({
                                     e.stopPropagation();
                                     onDeleteShape && onDeleteShape(shape.id);
                                 }}
-                                className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
+                                className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded transition-colors"
                             >
                                 <Trash2 size={16} />
                             </button>
                         </div>
                     ))}
                     {shapes.length === 0 && (
-                        <div className="text-center py-8 text-gray-400 text-sm">
+                        <div className="text-center py-8 text-slate-400 text-sm">
                             No layers yet
                         </div>
                     )}
@@ -663,7 +663,7 @@ export const SidePanel: React.FC<SidePanelProps> = ({
                         </div>
                     ))}
                     {uploadedAssets.length === 0 && (
-                        <div className="col-span-2 text-center text-gray-400 text-sm py-8">
+                        <div className="col-span-2 text-center text-slate-400 text-sm py-8">
                             No uploads yet
                         </div>
                     )}
@@ -679,7 +679,7 @@ export const SidePanel: React.FC<SidePanelProps> = ({
 const TabButton = ({ active, onClick, icon, label }: any) => (
     <button 
         onClick={onClick}
-        className={`flex flex-col items-center gap-1 p-2 w-full transition-colors ${active ? 'text-blue-600' : 'text-gray-500 hover:text-gray-800'}`}
+        className={`flex flex-col items-center gap-1 p-2 w-full transition-colors ${active ? 'text-slate-900' : 'text-slate-400 hover:text-slate-600'}`}
     >
         {icon}
         <span className="text-[10px] font-medium">{label}</span>
@@ -691,7 +691,7 @@ const ShapeButton = ({ onClick, icon, label, onDragStart }: any) => (
         onClick={onClick}
         draggable={!!onDragStart}
         onDragStart={onDragStart}
-        className="aspect-square bg-white rounded-lg shadow-sm border border-gray-200 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 hover:border-blue-300 transition-all text-gray-600 cursor-grab active:cursor-grabbing"
+        className="aspect-square bg-white rounded-lg shadow-sm border border-slate-200 flex flex-col items-center justify-center gap-2 hover:bg-slate-50 hover:border-slate-300 transition-all text-slate-600 cursor-grab active:cursor-grabbing"
     >
         {icon}
         <span className="text-[10px]">{label}</span>

@@ -15,31 +15,31 @@ export const SocialPreview: React.FC<SocialPreviewProps> = ({ isOpen, onClose, i
   if (!isOpen) return null;
 
   const renderInstagramPost = () => (
-    <div className="bg-white w-[375px] h-[812px] rounded-[40px] border-8 border-gray-900 overflow-hidden flex flex-col shadow-2xl relative">
+    <div className="bg-white w-[375px] h-[812px] rounded-[40px] border-8 border-slate-900 overflow-hidden flex flex-col shadow-2xl relative font-sans">
       {/* Status Bar */}
-      <div className="h-12 bg-white flex justify-between items-center px-6 text-xs font-bold">
+      <div className="h-12 bg-white flex justify-between items-center px-6 text-xs font-bold text-slate-900">
         <span>9:41</span>
         <div className="flex gap-1">
-          <div className="w-4 h-4 bg-black rounded-full opacity-20"></div>
-          <div className="w-4 h-4 bg-black rounded-full opacity-20"></div>
+          <div className="w-4 h-4 bg-slate-900 rounded-full opacity-20"></div>
+          <div className="w-4 h-4 bg-slate-900 rounded-full opacity-20"></div>
         </div>
       </div>
 
       {/* Header */}
-      <div className="h-14 border-b flex items-center justify-between px-4">
+      <div className="h-14 border-b border-slate-100 flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
            <div className="w-8 h-8 bg-gradient-to-tr from-yellow-400 to-purple-600 rounded-full p-[2px]">
               <div className="w-full h-full bg-white rounded-full p-[2px]">
-                 <div className="w-full h-full bg-gray-200 rounded-full" />
+                 <div className="w-full h-full bg-slate-200 rounded-full" />
               </div>
            </div>
-           <span className="text-sm font-semibold">your_username</span>
+           <span className="text-sm font-semibold text-slate-900">your_username</span>
         </div>
-        <MoreHorizontal size={20} />
+        <MoreHorizontal size={20} className="text-slate-900" />
       </div>
 
       {/* Content */}
-      <div className="bg-gray-100 relative" style={{ aspectRatio: format.width / format.height }}>
+      <div className="bg-slate-100 relative" style={{ aspectRatio: format.width / format.height }}>
         <img src={imageSrc} className="w-full h-full object-cover" alt="Preview" />
       </div>
 

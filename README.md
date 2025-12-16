@@ -1,6 +1,6 @@
-# X-IDE Lite
+# X.IDE
 
-A powerful design tool built with React, Vite, and tldraw.
+A powerful design tool built with React, Vite, and Konva.
 
 ## Features
 

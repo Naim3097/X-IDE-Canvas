@@ -24,18 +24,18 @@ export const ContextToolbar: React.FC<ContextToolbarProps> = ({
 }) => {
   if (!selectedShape) {
     return (
-      <div className="h-12 border-b border-gray-200 bg-white flex items-center px-4 text-sm text-gray-400">
+      <div className="h-12 border-b border-slate-200 bg-white flex items-center px-4 text-sm text-slate-400 font-sans">
         Select an element to edit
       </div>
     );
   }
 
   return (
-    <div className="h-14 border-b border-gray-200 bg-white flex items-center px-4 gap-4 overflow-x-auto shadow-sm z-20 relative">
+    <div className="h-14 border-b border-slate-200 bg-white flex items-center px-4 gap-4 overflow-x-auto shadow-sm z-20 relative font-sans">
       
       {/* --- Common Actions: Color --- */}
-      <div className="flex items-center gap-2 border-r border-gray-200 pr-4">
-        <div className="w-8 h-8 relative overflow-hidden rounded border border-gray-300 cursor-pointer">
+      <div className="flex items-center gap-2 border-r border-slate-200 pr-4">
+        <div className="w-8 h-8 relative overflow-hidden rounded border border-slate-300 cursor-pointer">
             <input 
                 type="color" 
                 value={selectedShape.fill || '#000000'}
